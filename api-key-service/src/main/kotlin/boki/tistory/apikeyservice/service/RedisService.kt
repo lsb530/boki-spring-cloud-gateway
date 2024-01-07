@@ -19,7 +19,7 @@ class RedisService(
     }
 
     fun existsInRedis(key: String): Boolean {
-        return redisTemplate.hasKey(key) ?: false
+        return redisTemplate.hasKey(key)
     }
 
 }
