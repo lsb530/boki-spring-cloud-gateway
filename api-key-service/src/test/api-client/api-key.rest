@@ -1,0 +1,4 @@
+### 키 발급
+// @no-log
+POST http://localhost:7942/api-key/register
+Content-Type: application/json
