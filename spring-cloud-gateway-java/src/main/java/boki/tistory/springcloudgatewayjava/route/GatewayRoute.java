@@ -11,9 +11,14 @@ public class GatewayRoute {
     public RouteLocator userRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 // users
-                .route("users_route", r -> r.path("/users")
+                .route("users_route_1", r -> r.path("/users")
+                        .and().weight("users", 7)
                         .filters(f -> f.rewritePath("/users", "/rest/v1/api/users"))
                         .uri("http://localhost:4004"))
+                .route("users_route_2", r -> r.path("/users")
+                        .and().weight("users", 3)
+                        .filters(f -> f.rewritePath("/users", "/rest/v1/api/users"))
+                        .uri("http://localhost:4005"))
                 .build();
     }
 
