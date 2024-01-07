@@ -16,4 +16,14 @@ public class GatewayRoute {
                         .uri("http://localhost:4004"))
                 .build();
     }
+
+    @Bean
+    public RouteLocator bookRouteLocator(RouteLocatorBuilder builder) {
+        return builder.routes()
+                // books
+                .route("books_route", r -> r.path("/books")
+                        .filters(f -> f.rewritePath("/books", "/rest/v2/api/books"))
+                        .uri("http://localhost:5004"))
+                .build();
+    }
 }

@@ -2,3 +2,8 @@
 // @no-log
 GET http://localhost:8888/users
 Content-Type: application/json
+
+### API GW - 서적 전체 조회
+// @no-log
+GET http://localhost:8888/books
+Content-Type: application/json
