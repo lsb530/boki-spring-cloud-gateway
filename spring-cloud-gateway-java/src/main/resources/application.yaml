@@ -20,3 +20,11 @@ spring:
               - "*"
             allowCredentials: true
             maxAge: 3600
+
+      routes:
+        - id: reviews_route
+          uri: http://localhost:6004
+          predicates:
+            - Path=/reviews
+          filters:
+            - RewritePath=/reviews, /fast/api/reviews
