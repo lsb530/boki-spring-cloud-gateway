@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class GatewayRoute {
+public class UserRoute {
     @Bean
     public RouteLocator userRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
@@ -19,16 +19,6 @@ public class GatewayRoute {
                         .and().weight("users", 3)
                         .filters(f -> f.rewritePath("/users", "/rest/v1/api/users"))
                         .uri("http://localhost:4005"))
-                .build();
-    }
-
-    @Bean
-    public RouteLocator bookRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                // books
-                .route("books_route", r -> r.path("/books")
-                        .filters(f -> f.rewritePath("/books", "/rest/v2/api/books"))
-                        .uri("http://localhost:5004"))
                 .build();
     }
 }
