@@ -1,0 +1,16 @@
+# Test your FastAPI endpoints
+
+### root
+// @no-log
+GET http://127.0.0.1:6004/
+Accept: application/json
+
+### say_hello
+// @no-log
+GET http://127.0.0.1:6004/hello/User
+Accept: application/json
+
+### get_reviews
+// @no-log
+GET http://127.0.0.1:6004/fast/api/reviews
+Accept: application/json
