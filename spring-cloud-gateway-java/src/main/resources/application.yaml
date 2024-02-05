@@ -9,17 +9,20 @@ spring:
 
   cloud:
     gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOriginPatterns:
-              - "*"
-            allowedMethods:
-              - "*"
-            allowedHeaders:
-              - "*"
-            allowCredentials: true
-            maxAge: 3600
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOriginPatterns:
+#              - "*"
+#            allowedMethods:
+#              - "*"
+#            allowedHeaders:
+#              - "*"
+#            allowCredentials: true
+#            maxAge: 3600
 
       routes:
         - id: reviews_route
@@ -28,3 +31,13 @@ spring:
             - Path=/reviews
           filters:
             - RewritePath=/reviews, /fast/api/reviews
+
+boki:
+  svc:
+#    user: {}
+#    review: {}
+    book:
+      base-url: 'localhost:5004'
+      http-url: 'http://${boki.svc.book.base-url}'
+      websocket-url: 'ws://${boki.svc.book.base-url}'
+      api-key: 'boki'

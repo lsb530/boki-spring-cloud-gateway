@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringCloudGatewayJavaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudGatewayJavaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCloudGatewayJavaApplication.class, args);
+    }
 
 }
