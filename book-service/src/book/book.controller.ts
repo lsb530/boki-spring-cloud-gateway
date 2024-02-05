@@ -36,11 +36,13 @@ export class BookController {
 
   @Patch(':id')
   updateBook(@Param('id') id: string, @Body() req: UpdateBookDto): BookDto {
+    console.log('update book')
     return this.bookService.update(+id, req)
   }
 
   @Delete(':id')
   deleteBook(@Param('id') id: string) {
+    console.log('delete book')
     return this.bookService.delete(+id)
   }
 }

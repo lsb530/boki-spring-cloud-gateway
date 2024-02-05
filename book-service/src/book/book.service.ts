@@ -39,7 +39,7 @@ export class BookService {
 
   update(id: number, req: UpdateBookDto) {
     const findBook = this.validateExistsAndGet(id)
-    findBook.name = req.name
+    findBook.name = req.name ?? findBook.name
     return findBook
   }
 

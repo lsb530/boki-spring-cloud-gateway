@@ -2,6 +2,8 @@ server:
   port: 8888
 
 spring:
+  application:
+    name: 'boki-tistory-api-gateway'
   data:
     redis:
       host: localhost
@@ -41,3 +43,8 @@ boki:
       http-url: 'http://${boki.svc.book.base-url}'
       websocket-url: 'ws://${boki.svc.book.base-url}'
       api-key: 'boki'
+
+logging:
+  level:
+    boki.tistory.springcloudgatewayjava.filter: DEBUG
+
