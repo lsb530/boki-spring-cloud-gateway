@@ -31,8 +31,8 @@ public class LoggingFilter implements GlobalFilter, Ordered {
                         String rewrittenUri = Objects.requireNonNull(exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR)).toString();
                         String finalMethod = exchange.getAttribute("PATCHED_METHOD") != null ? Objects.requireNonNull(exchange.getAttribute("PATCHED_METHOD")).toString() : originalMethod;
 
-                        logger.info("==> gateway path: {} {}", originalMethod, originalUri);
-                        logger.info("==> rewrite path: {} {}", finalMethod, rewrittenUri);
+                        logger.info("<== gateway path: {} {}", originalMethod, originalUri);
+                        logger.info("==> rewrite path: {} {}\n", finalMethod, rewrittenUri);
                     }
                 }));
     }
